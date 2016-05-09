@@ -1,0 +1,23 @@
+{
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "An app to store recipes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-B-Ly/recipes.git"
+  },
+  "author": "Alex Ly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-B-Ly/recipes/issues"
+  },
+  "homepage": "https://github.com/alex-B-Ly/recipes#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
