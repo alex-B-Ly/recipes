@@ -1,12 +1,12 @@
-angular.module('recipes', ['ui.router'])
+angular.module('recipesApp', ['ui.router'])
   .config(function($urlRouterProvider, $stateProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 
-    // $stateProvider
-    //   .state('home',{
-    //     url: '/',
-    //     templateUrl: ''
-    //   });
+    $stateProvider
+      .state('home',{
+        url: '/',
+        templateUrl: '/home/home.html'
+      });
 
     $locationProvider.html5Mode({
       enabled: true,
