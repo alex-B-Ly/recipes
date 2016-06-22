@@ -3,6 +3,20 @@
 		<h2>New User</h2>
 	</div>
 	<div class="col-xs-12">
-		{{test}}
+		<form novalidate>
+			<div class="form-group">
+				<label for="username">Enter your name</label>
+				<input id="username" type="text" ng-model="user.name">
+			</div>
+			<div class="form-group">
+				<label for="password">Enter your password</label>
+				<input type="password" ng-model="user.password">
+			</div>
+			<div class="form-group">
+				<label for="password_confirm">Confirm your password</label>
+				<input type="password" ng-modal="user.confirmPassword">
+			</div>
+		</form>
+		<button ng-click="addUser()">Click to test</button>
 	</div>
 </div>
