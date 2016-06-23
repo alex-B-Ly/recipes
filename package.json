@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/alex-B-Ly/recipes#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.5.1"
   }
 }

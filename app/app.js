@@ -6,10 +6,15 @@ angular.module('recipesApp', ['ui.router'])
       .state('home',{
         url: '/',
         templateUrl: '/home/home.html'
+      })
+      .state('users',{
+        url: '/users',
+        templateUrl: '/userchoose/userchoose.html'
+      })
+      .state('adduser',{
+        url: '/adduser',
+        templateUrl: '/adduser/adduser.html'
       });
 
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+    $locationProvider.html5Mode(true);
   });
