@@ -3,21 +3,23 @@
 		<h2>New User</h2>
 	</div>
 	<div class="col-xs-12">
-		<form novalidate>
+		<form name="userForm" novalidate ng-submit="addUser()">
 			<div class="form-group">
 				<label for="username">Enter your name</label>
-				<input id="username" type="text" ng-model="user.name">
+				<input id="username" name="user" type="text" ng-model="user.name" ng-model-options="{debounce: 800}" ng-minlength="2" required>
+				<p ng-show="userForm.user.$invalid && !userForm.user.$pristine" class="help-block">Username is required and needs to be at least 2 characters long.</p>
 			</div>
 			<div class="form-group">
 				<label for="password">Enter your password</label>
-				<input type="password" ng-model="user.password">
+				<input type="password" name="pass" ng-model="user.password"  ng-model-options="{debounce: 800}" ng-minlength="5" required>
+				<p ng-show="userForm.pass.$error.minlength" class="help-block">Your password needs to be at least 5 characters long.</p>
 			</div>
 			<div class="form-group">
 				<label for="password_confirm">Confirm your password</label>
-				<input type="password" ng-model="user.confirmPassword">
+				<input type="password" ng-model="user.confirmPassword" ng-model-options="{debounce: 800}" required>
 			</div>
+			<button type="submit" ng-disabled="userForm.$invalid">Click to add user</button>
 		</form>
-		<button ng-click="addUser()">Click to add user</button>
 	</div>
 	<div class="col-xs-12">
 		<a ui-sref="home">Go Back</a>

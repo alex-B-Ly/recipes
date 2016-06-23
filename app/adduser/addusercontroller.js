@@ -1,6 +1,6 @@
 var app = angular.module('recipesApp');
 
-app.controller('newUserController', ['$scope', '$http', function($scope, $http){
+app.controller('newUserController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
 	$scope.addUser = function(){
 		console.log($scope.user);
@@ -13,5 +13,7 @@ app.controller('newUserController', ['$scope', '$http', function($scope, $http){
 
 		$scope.user = {}
 		$scope.user = undefined;
+
+		$location.path('home');
 	}
 }]);
