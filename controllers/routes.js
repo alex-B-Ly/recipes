@@ -7,7 +7,14 @@ router.get('*', function(req, res) {
 });
 
 router.post('/newuser', function(req, res){
-	console.log(req.body);
+	var newUser = new User({
+		username: req.body.name,
+		password: req.body.password
+	});
+
+	newUser.save(function(err){
+		if(err){ throw err }
+	});
 });
 
 module.exports = router;
