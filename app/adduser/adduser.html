@@ -16,7 +16,8 @@
 			</div>
 			<div class="form-group">
 				<label for="password_confirm">Confirm your password</label>
-				<input type="password" ng-model="user.confirmPassword" ng-model-options="{debounce: 800}" required>
+				<input type="password" name="passconf" ng-model="user.confirmPassword" ng-model-options="{debounce: 800}" required compare-to="user.password">
+				<p ng-show="userForm.passconf.$error.compareTo && !userForm.passconf.$pristine">Passwords must match.</p>
 			</div>
 			<button type="submit" ng-disabled="userForm.$invalid">Click to add user</button>
 		</form>
