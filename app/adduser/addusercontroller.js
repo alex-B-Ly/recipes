@@ -50,10 +50,10 @@ app.controller('newUserController', ['$scope', '$http', '$location', function($s
 			element.on('keyup', function(){
 				for(var i=0, len=scope.nameArr.length; i<len; i++){
 					if(ctrl.$viewValue.toLowerCase() === scope.nameArr[i].toLowerCase()){
-						console.log('Name is taken');
+						scope.userForm.user.$setValidity('userCheck', false);
 						return;
 					}else{
-						console.log('Name is available');
+						scope.userForm.user.$setValidity('userCheck', true);
 					}
 				}
 			});
