@@ -6,8 +6,9 @@
 		<form name="userForm" novalidate ng-submit="addUser()">
 			<div class="form-group">
 				<label for="username">Enter your name</label>
-				<input id="username" name="user" type="text" ng-model="user.name" ng-model-options="{debounce: 800}" ng-minlength="2" required>
-				<p ng-show="userForm.user.$invalid && !userForm.user.$pristine" class="help-block">Username is required and needs to be at least 2 characters long.</p>
+				<input id="username" name="user" type="text" ng-model="user.name" ng-model-options="{debounce: 800}" ng-minlength="2" required user-check>
+				<p ng-show="userForm.user.$error.minlength && !userForm.user.$pristine" class="help-block">Username needs to be at least 2 characters long.</p>
+				<p ng-show="userForm.user.$error.userCheck && !userForm.user.$pristine">Username is already taken. Please choose another.</p>
 			</div>
 			<div class="form-group">
 				<label for="password">Enter your password</label>

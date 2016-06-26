@@ -19,9 +19,9 @@ app.controller('newUserController', ['$scope', '$http', '$location', function($s
 }])
 .directive('compareTo', function(){
 	return {
-    require: "ngModel",
+    require: 'ngModel',
     scope: {
-      otherModelValue: "=compareTo"
+      otherModelValue: '=compareTo'
     },
     link: function(scope, element, attributes, ngModel) {
        
@@ -29,9 +29,34 @@ app.controller('newUserController', ['$scope', '$http', '$location', function($s
         return modelValue == scope.otherModelValue;
       };
 
-      scope.$watch("otherModelValue", function() {
+      scope.$watch('otherModelValue', function() {
         ngModel.$validate();
       });
     }
   };
-});
+})
+.directive('userCheck',['$http', function($http){
+	return {
+		require: 'ngModel',
+		link: function(scope, element, attributes, ctrl){
+
+			$http({
+				method: 'POST',
+				url: '/usercheck'
+			}).then(function(res){
+				scope.nameArr = res.data;
+			});
+
+			element.on('keyup', function(){
+				for(var i=0, len=scope.nameArr.length; i<len; i++){
+					if(ctrl.$viewValue.toLowerCase() === scope.nameArr[i].toLowerCase()){
+						scope.userForm.user.$setValidity('userCheck', false);
+						return;
+					}else{
+						scope.userForm.user.$setValidity('userCheck', true);
+					}
+				}
+			});
+		}
+	}
+}]);

@@ -17,4 +17,16 @@ router.post('/newuser', function(req, res){
 	});
 });
 
+router.post('/usercheck', function(req, res){
+	User.find({}, function(err, users){
+		if(err){throw err}
+
+		var nameArr = users.map(function(user){
+			return user.username;
+		});
+
+		res.send(nameArr);
+	});
+});
+
 module.exports = router;
