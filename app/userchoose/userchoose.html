@@ -2,9 +2,11 @@
 	<div class="col-xs-12">
 		<h1>Users</h1>
 	</div>
+	<div class="col-xs-12" ng-show="userList.length < 1">
+		<p>No users found.</p>
+		<a ui-sref="adduser">Please create a new user to log in.</a>
+	</div>
 	<div class="col-xs-12">
-		<!-- TODO If no users, use ng-show to show a message and a link to create new user -->
-
 		<!-- TODO Add user dropdown populated by arr in ng code -->
 		<ul ng-show="userList.length > 0">
 			<li ng-repeat="user in userList">{{ user }}</li>
