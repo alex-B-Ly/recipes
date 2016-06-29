@@ -6,9 +6,17 @@
 		<p>No users found.</p>
 		<a ui-sref="adduser">Please create a new user to log in.</a>
 	</div>
-	<div class="col-xs-12">
-		<!-- TODO Add user dropdown populated by arr in ng code -->
-		
+	<div class="col-xs-12" ng-show="userList.length > 0">
+		<div class="btn-group" uib-dropdown dropdown-append-to-body>
+      <button id="btn-append-to-body" type="button" class="btn btn-default" uib-dropdown-toggle>
+        Choose user <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+        <li role="menuitem" ng-repeat="user in userList"><a href="#">{{ user }}</a></li>
+      </ul>
+    </div>
+    <!-- TODO Choosen user name appears here -->
+    <!-- TODO Password entry appears here -->
 	</div>
 	<div class="col-xs-12">
 		<a ui-sref="home">Go Back</a>
