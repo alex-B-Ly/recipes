@@ -1,4 +1,4 @@
-angular.module('recipesApp', ['ui.router'])
+angular.module('recipesApp', ['ui.router', 'ui.bootstrap'])
   .config(function($urlRouterProvider, $stateProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 

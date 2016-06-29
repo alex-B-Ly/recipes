@@ -1,10 +1,39 @@
 <div class="row text-center" ng-controller="userChooseController">
 	<div class="col-xs-12">
-		<h1>Users</h1>
+		<h1>Choose your username to login</h1>
+	</div>
+	<div class="col-xs-12" ng-show="userList.length < 1">
+		<p>No users found.</p>
+		<a ui-sref="adduser">Please create a new user to log in.</a>
+	</div>
+	<div class="col-xs-12" ng-show="userList.length > 0">
+		<div class="btn-group" uib-dropdown dropdown-append-to-body>
+      <button id="btn-append-to-body" type="button" class="btn btn-default" uib-dropdown-toggle>
+        Choose user <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+        <li role="menuitem" ng-repeat="user in userList"><a href="#" ng-click="chooseUser()">{{ user }}</a></li>
+      </ul>
+    </div>
+	</div>
+	<div class="col-xs-12" ng-show="userChosen">
+		<form novalidate ng-submit="userChooseLogin()">
+		<!-- TODO Choosen user name appears here -->
+			<div class="form-group">
+				<p>{{ chosenUser }}</p>
+			</div>
+    <!-- TODO Password entry appears here -->
+    	<div class="form-group">
+    		<label for="user-chosen-password">Enter your Password</label>
+    		<input id="user-chosen-password" type="password" name="userChoosePass" ng-model="userchoose.password">
+    	</div>
+    <!-- TODO Login button appears here, takes user to main view -->
+    	<div class="form-group">
+    		<button class="btn btn-primary" type="submit">Login</button>
+    	</div>
+    </form>
 	</div>
 	<div class="col-xs-12">
-		<!-- TODO If no users, use ng-show to show a message and a link to create new user -->
-
-		<!-- TODO Add user dropdown populated by arr in ng code -->
+		<a ui-sref="home">Go Back</a>
 	</div>
 </div>
