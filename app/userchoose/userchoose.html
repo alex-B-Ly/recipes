@@ -1,6 +1,6 @@
 <div class="row text-center" ng-controller="userChooseController">
 	<div class="col-xs-12">
-		<h1>Users</h1>
+		<h1>Choose your username to login</h1>
 	</div>
 	<div class="col-xs-12" ng-show="userList.length < 1">
 		<p>No users found.</p>
@@ -12,11 +12,26 @@
         Choose user <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-        <li role="menuitem" ng-repeat="user in userList"><a href="#">{{ user }}</a></li>
+        <li role="menuitem" ng-repeat="user in userList"><a href="#" ng-click="chooseUser()">{{ user }}</a></li>
       </ul>
     </div>
-    <!-- TODO Choosen user name appears here -->
+	</div>
+	<div class="col-xs-12" ng-show="userChosen">
+		<form novalidate ng-submit="userChooseLogin()">
+		<!-- TODO Choosen user name appears here -->
+			<div class="form-group">
+				<p>{{ chosenUser }}</p>
+			</div>
     <!-- TODO Password entry appears here -->
+    	<div class="form-group">
+    		<label for="user-chosen-password">Enter your Password</label>
+    		<input id="user-chosen-password" type="password" name="userChoosePass" ng-model="userchoose.password">
+    	</div>
+    <!-- TODO Login button appears here, takes user to main view -->
+    	<div class="form-group">
+    		<button class="btn btn-primary" type="submit">Login</button>
+    	</div>
+    </form>
 	</div>
 	<div class="col-xs-12">
 		<a ui-sref="home">Go Back</a>

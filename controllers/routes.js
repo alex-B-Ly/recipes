@@ -6,6 +6,9 @@ router.get('*', function(req, res) {
   res.sendFile(process.cwd() + '/index.html');
 });
 
+// ADD USER ROUTES
+
+	// CREATES NEW USER
 router.post('/newuser', function(req, res){
 	var newUser = new User({
 		username: req.body.name,
@@ -17,6 +20,7 @@ router.post('/newuser', function(req, res){
 	});
 });
 
+	// CHECKS IF USER IS UNIQUE 
 router.post('/usercheck', function(req, res){
 	User.find({}, function(err, users){
 		if(err){throw err}
@@ -27,6 +31,12 @@ router.post('/usercheck', function(req, res){
 
 		res.send(nameArr);
 	});
+});
+
+// USER CHOOSE ROUTES
+
+router.post('/userlogin', function(req, res){
+	console.log(req.body);
 });
 
 module.exports = router;
