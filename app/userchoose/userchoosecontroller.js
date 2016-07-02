@@ -24,12 +24,20 @@ app.controller('userChooseController', ['$scope', '$http', function($scope, $htt
 
   $scope.userChooseLogin = function(){
   	$scope.userchoose.username = $scope.chosenUser;
-  	console.log($scope.userchoose);
 
   	$http({
   		method: 'POST',
-  		url: 'userlogin',
+  		url: '/userlogin',
   		data: $scope.userchoose
+  	}).then(function(response){
+  		console.log(response.data);
+  		if(response.data.success){
+  			// TODO Handle successful login
+  				// Pass username into logged in factory
+  		}else{
+  			// TODO Handle login fail
+  				// $scope.loginfail will be an ng-show fail message
+  		}
   	});
   }
 
