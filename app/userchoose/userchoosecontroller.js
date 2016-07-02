@@ -28,8 +28,10 @@ app.controller('userChooseController', ['$scope', '$http', function($scope, $htt
 
   	$http({
   		method: 'POST',
-  		url: 'userlogin',
+  		url: '/userlogin',
   		data: $scope.userchoose
+  	}).then(function(response){
+  		console.log(response.data);
   	});
   }
 

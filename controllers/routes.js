@@ -1,6 +1,7 @@
 var express = require('express'),
 router = express.Router(),
-User = require('../models/users.js');
+User = require('../models/users.js'),
+passport = require('passport');
 
 router.get('*', function(req, res) {
   res.sendFile(process.cwd() + '/index.html');
@@ -35,8 +36,16 @@ router.post('/usercheck', function(req, res){
 
 // USER CHOOSE ROUTES
 
-router.post('/userlogin', function(req, res){
-	console.log(req.body);
+router.post('/userlogin', function(req, res, next){
+	passport.authenticate('login-auth', function(err, user){
+		if(err){
+			return next(err);
+		}
+		if(!user){
+			return res.send({ success: false });
+		}
+		return res.send({success: true});
+	})(req, res, next);
 });
 
 module.exports = router;
