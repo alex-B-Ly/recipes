@@ -44,7 +44,7 @@ router.post('/userlogin', function(req, res, next){
 		if(!user){
 			return res.send({ success: false });
 		}
-		return res.send({success: true});
+		return res.send({success: true, user: user.username});
 	})(req, res, next);
 });
 
