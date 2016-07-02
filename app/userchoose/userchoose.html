@@ -18,16 +18,13 @@
 	</div>
 	<div class="col-xs-12" ng-show="userChosen">
 		<form novalidate ng-submit="userChooseLogin()">
-		<!-- TODO Choosen user name appears here -->
 			<div class="form-group">
-				<p>{{ chosenUser }}</p>
+				<h2>{{ chosenUser }}</h2>
 			</div>
-    <!-- TODO Password entry appears here -->
     	<div class="form-group">
     		<label for="user-chosen-password">Enter your Password</label>
     		<input id="user-chosen-password" type="password" name="userChoosePass" ng-model="userchoose.password">
     	</div>
-    <!-- TODO Login button appears here, takes user to main view -->
     	<div class="form-group">
     		<button class="btn btn-primary" type="submit">Login</button>
     	</div>
