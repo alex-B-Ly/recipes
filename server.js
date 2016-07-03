@@ -17,7 +17,7 @@ app.use(session({
 	resave: true,
 	// TODO Replace cookie below with mongoStore for persistent session
 	cookie: {
-		maxAge: 10 * 60 * 1000
+		maxAge: 6 * 60 * 60 * 1000
 	}
 }));
 require('./config/passport')(passport);
