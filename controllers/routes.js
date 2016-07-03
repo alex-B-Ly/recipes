@@ -29,7 +29,7 @@ router.post('/usercheck', function(req, res){
 		var nameArr = users.map(function(user){
 			return user.username;
 		});
-
+		console.log('req session: ',req.session);
 		res.send(nameArr);
 	});
 });
@@ -44,7 +44,12 @@ router.post('/userlogin', function(req, res, next){
 		if(!user){
 			return res.send({ success: false });
 		}
-		return res.send({success: true, user: user.username});
+		req.login(user, function(){
+			if(err){
+				return next(err);
+			}
+			return res.send({success: true, user: user.username});
+		});
 	})(req, res, next);
 });
 
