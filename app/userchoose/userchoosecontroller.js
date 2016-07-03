@@ -33,10 +33,11 @@ app.controller('userChooseController', ['$scope', '$http', function($scope, $htt
   		console.log(response.data);
   		if(response.data.success){
   			// TODO Handle successful login
-  				// Pass username into logged in factory
+  				// Send user to main view
+  				$scope.loginfail = false;
   		}else{
   			// TODO Handle login fail
-  				// $scope.loginfail will be an ng-show fail message
+  			$scope.loginfail = true;
   		}
   	});
   }

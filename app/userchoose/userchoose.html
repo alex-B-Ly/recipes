@@ -24,6 +24,7 @@
     	<div class="form-group">
     		<label for="user-chosen-password">Enter your Password</label>
     		<input id="user-chosen-password" type="password" name="userChoosePass" ng-model="userchoose.password">
+    		<p ng-show="loginfail">Your credentials are incorrect.</p>
     	</div>
     	<div class="form-group">
     		<button class="btn btn-primary" type="submit">Login</button>
