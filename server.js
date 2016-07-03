@@ -1,8 +1,10 @@
 var express = require('express'),
 PORT = process.env.PORT || 8080,
+mongoose = require('mongoose'),
 db = require('./config/connection.js'),
 session = require('express-session'),
 passport = require('passport'),
+mongoStore = require('connect-mongo')(session),
 routes = require('./controllers/routes.js'),
 bodyParser = require('body-parser'),
 app = express();
@@ -16,9 +18,10 @@ app.use(session({
 	saveUninitialized: true,
 	resave: true,
 	// TODO Replace cookie below with mongoStore for persistent session
-	cookie: {
-		maxAge: 10 * 60 * 1000
-	}
+	store: new mongoStore({
+		mongooseConnection: mongoose.connection,
+		ttl: 2 * 60 * 60
+	})
 }));
 require('./config/passport')(passport);
 app.use(passport.initialize());
