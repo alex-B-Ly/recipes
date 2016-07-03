@@ -14,6 +14,10 @@ angular.module('recipesApp', ['ui.router', 'ui.bootstrap'])
       .state('adduser',{
         url: '/adduser',
         templateUrl: '/adduser/adduser.html'
+      })
+      .state('main',{
+        url: '/main',
+        templateUrl: '/main/main.html'
       });
 
     $locationProvider.html5Mode(true);

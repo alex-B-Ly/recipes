@@ -1,6 +1,6 @@
 var app = angular.module('recipesApp');
 
-app.controller('userChooseController', ['$scope', '$http', function($scope, $http){
+app.controller('userChooseController', ['$scope', '$http', '$location', function($scope, $http, $location){
 	$scope.userList = [];
 	$scope.userChosen = false;
 
@@ -35,6 +35,7 @@ app.controller('userChooseController', ['$scope', '$http', function($scope, $htt
   			// TODO Handle successful login
   				// Send user to main view
   				$scope.loginfail = false;
+          $location.path('main');
   		}else{
   			// TODO Handle login fail
   			$scope.loginfail = true;
