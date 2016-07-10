@@ -35,7 +35,6 @@ router.post('/usercheck', function(req, res){
 });
 
 // USER CHOOSE ROUTES
-
 router.post('/userlogin', function(req, res, next){
 	passport.authenticate('login-auth', function(err, user){
 		if(err){
@@ -51,6 +50,12 @@ router.post('/userlogin', function(req, res, next){
 			return res.send({success: true, user: user.username});
 		});
 	})(req, res, next);
+});
+
+// NAVBAR ROUTES
+router.post('/logout', function(req, res){
+	req.session.destroy();
+	res.send(true);
 });
 
 module.exports = router;
