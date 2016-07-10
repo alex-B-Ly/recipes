@@ -32,12 +32,9 @@ app.controller('userChooseController', ['$scope', '$http', '$location', function
   	}).then(function(response){
   		console.log(response.data);
   		if(response.data.success){
-  			// TODO Handle successful login
-  				// Send user to main view
-  				$scope.loginfail = false;
-          $location.path('main');
+				$scope.loginfail = false;
+        $location.path('main');
   		}else{
-  			// TODO Handle login fail
   			$scope.loginfail = true;
   		}
   	});
