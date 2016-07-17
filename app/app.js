@@ -22,6 +22,10 @@ angular.module('recipesApp', ['ui.router', 'ui.bootstrap'])
       .state('browserecipes',{
         url: '/browserecipes',
         templateUrl: '/browserecipes/browserecipes.html'
+      })
+      .state('managerecipes',{
+        url: '/managerecipes',
+        templateUrl: '/managerecipes/managerecipes.html'
       });
 
     $locationProvider.html5Mode(true);

@@ -2,13 +2,13 @@ var app = angular.module('recipesApp');
 
 app.controller('mainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
-	$scope.userCheck = function(){
+	$scope.authCheck = function(locPath){
 		$http({
 			url: '/auth-check',
 			method: 'POST'
 		}).then(function(check){
 			if(check.data === true){
-				$location.path('browserecipes');
+				$location.path(locPath);
 			}else{
 				$location.path('/');
 			}
