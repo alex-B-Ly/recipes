@@ -29,7 +29,6 @@ router.post('/usercheck', function(req, res){
 		var nameArr = users.map(function(user){
 			return user.username;
 		});
-		console.log('req session: ',req.session);
 		res.send(nameArr);
 	});
 });
@@ -56,6 +55,17 @@ router.post('/userlogin', function(req, res, next){
 router.post('/logout', function(req, res){
 	req.session.destroy();
 	res.send(true);
+});
+
+// AUTHENTICATION CHECK
+router.post('/auth-check', function(req, res){
+	if(req.session.passport){
+		console.log('User is authenticated');
+		res.send(true);
+	}else{
+		console.log('User does not have permission');
+		res.send(false);
+	}
 });
 
 module.exports = router;
