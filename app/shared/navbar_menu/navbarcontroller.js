@@ -10,6 +10,7 @@ app.controller('navbarController', ['$scope', '$location', '$http', function($sc
 		}).then(function(response){
 			if(response.data === true){
 				$location.path('home');
+				console.log('user successfully logged out.');
 			}
 		})
 	}

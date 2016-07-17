@@ -18,6 +18,10 @@ angular.module('recipesApp', ['ui.router', 'ui.bootstrap'])
       .state('main',{
         url: '/main',
         templateUrl: '/main/main.html'
+      })
+      .state('browserecipes',{
+        url: '/browserecipes',
+        templateUrl: '/browserecipes/browserecipes.html'
       });
 
     $locationProvider.html5Mode(true);
