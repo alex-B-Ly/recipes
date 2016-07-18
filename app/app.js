@@ -5,15 +5,15 @@ angular.module('recipesApp', ['ui.router', 'ui.bootstrap'])
     $stateProvider
       .state('home',{
         url: '/',
-        templateUrl: '/home/home.html'
+        templateUrl: '/landing/home/home.html'
       })
       .state('users',{
         url: '/users',
-        templateUrl: '/userchoose/userchoose.html'
+        templateUrl: '/landing/userchoose/userchoose.html'
       })
       .state('adduser',{
         url: '/adduser',
-        templateUrl: '/adduser/adduser.html'
+        templateUrl: '/landing/adduser/adduser.html'
       })
       .state('main',{
         url: '/main',
