@@ -1,0 +1,30 @@
+<div ng-controller="addrecipecontroller">
+	<navbar-menu></navbar-menu>
+
+	<div class="row text-center">
+		<h1>Add recipe</h1>
+	</div>
+
+	<div class="container text-center">
+		<form name="userForm" novalidate ng-submit="addRecipe()">
+			<div class="form-group">
+				<label for="recipename">Recipe Name</label>
+				<input id="recipename" type="text" required>
+			</div>
+			<div class="form-group">
+				<label for="preptime">Preparation time</label>
+				<input id="preptime" type="text" required>
+				<span> Minutes</span>
+			</div>
+			<div class="form-group">
+				<label for="cooktime">Cooking time</label>
+				<input id="cooktime" type="text" required>
+				<span> Minutes</span>
+			</div>
+			<div class="form-group">
+				<label for="servings">Servings</label>
+				<input id="servings" type="text" required>
+			</div>
+		</form>
+	</div>
+</div>
