@@ -1,3 +1,4 @@
 # Recipes App
 
-An app to store recipes
+A basic local app to store recipes.
+Work in progress.
